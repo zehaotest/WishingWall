@@ -1,0 +1,38 @@
+<meta charset="UTF-8">
+<div class="note-layer js-note-add">
+	<div class="note-edit">
+		<div class="note-edit-title">编辑许愿</div>
+		<form method="post" action="./save.php?id=<?=$id?>&page=<?=$page?>">
+			<table class="note-edit-table">
+				<tr>
+					<td class="note-edit-table-w">
+						<p>我的名字：</p>
+						<input class="note-edit-name" type="text" name="name" placeholder="匿名" value="<?=htmlspecialchars($edit['name'])?>"/>
+					</td>
+					<td>
+						<p>贴纸颜色：</p>
+						<label class="note-edit-green"><input type="radio" name="color" value="green"<?=$edit['color'] == 'green' ? 'checked' : ''?>></label>
+						<label class="note-edit-blue"><input type="radio" name="color" value="blue"<?=$edit['color'] == 'blue'? 'checked' : ''?>></label>
+						<label class="note-edit-yellow"><input type="radio" name="color" value="yellow"<?=$edit['color'] == 'yellow' ? 'checked' : ''?>></label>
+						<label class="note-edit-red"><input type="radio" name="color" value="red"<?=$edit['color'] == 'red' ? 'checked' : ''?>></label>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<p>我的愿望：</p>
+						<textarea class="note-edit-content" name="content"><?=htmlspecialchars($edit['content'])?></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+						<input type="hidden" name="password" value="<?=htmlspecialchars($password)?>"/>
+						<input class="note-edit-submit" type="submit" value="提交" />
+						<input class="note-edit-cancel" type="button" value="取消" />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>

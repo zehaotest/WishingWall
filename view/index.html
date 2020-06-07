@@ -1,0 +1,59 @@
+<!--
+	作者：offline
+	时间：2020-06-06
+	描述:输出许愿墙
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>许愿墙</title>
+		<link rel="stylesheet" href="./css/style.css" />
+	</head>
+	<body>
+		<div class="top">
+			<div class="container"><h1><a href="index.html">许愿墙</a></h1></div>
+		</div>
+		<div class="container note">
+			<div class="note-top"><div class="note-top-add">我要许愿</div></div>
+			<div class="note-box">
+				
+				<!--
+                	描述：输出许愿墙
+                -->
+                <?php foreach ($data as $v):?>
+                	<div class="note-list note-list-<?=$v['color']?>">
+                		<div class="note-list-action">
+                			<a class="note-list-edit" href="./index.php?action=edit&id=<?=$v['id']?>&page=<?=$page?>" title="修改">✎</a>
+                			<a class="note-list-delete"href="./index.php?action=delete&id=<?=$v['id']?>&page=<?=$page?>" title="删除">✘☹</a>
+                		</div>
+                		<ul class="note-list-box">
+                			<li class="note-list-name">FORM: <span><?=htmlspecialchars($v['name'])?></span></li>
+              				<li class="note-list-content"><?=htmlspecialchars($v['content'])?></li>
+              				<li class="note-list-date">(<?=format_date($v['time'])?>前 <?=date('H:i', $v['time'])?>)</li>
+                		</ul>
+                	</div>
+                <?php endforeach; ?>
+				</div>
+				<!--
+                	描述：添加愿望的表单
+               -->
+                <?php require './view/common2/add.html';?>
+                <!--
+                	描述：编辑愿望表单
+                -->
+                <!--<?php if($id): require './view/common2/edit.html'; endif; ?>-->
+                <?php if($id) : require './view/common2/' . ($checked ? 'edit' : 'password') . '.html'; endif; ?>
+				<!--
+                	描述：分页链接
+                -->
+                <div class="note-page">
+                	<?=page_html('./index.php?page=', $total, $page, $size)?>
+                </div>
+			</div>
+		<script src="./js/jquery-1.12.4.min.js"></script>
+		<script src="./js/common.js"></script>
+	</body>
+</html>
+
+

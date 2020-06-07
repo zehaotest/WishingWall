@@ -1,0 +1,38 @@
+<div class="note-layer js-note-add" style="display:none">
+	<div class="note-edit">
+		<div class="note-edit-title">我要许愿</div>
+		<form method="post" action="./save.php">
+			<table class="note-edit-table">
+				<tr>
+					<td class="note-edit-table-w">
+						<p>我的名字：</p>
+						<input class="note-edit-name" type="text" name="name" placeholder="匿名">
+					</td>
+					<td>
+						<p>贴纸颜色：</p>
+						<label class="note-edit-green"><input type="radio" name="color" value="green" checked></label>
+						<label class="note-edit-blue"><input type="radio" name="color" value="blue" ></label>
+						<label class="note-edit-yellow"><input type="radio" name="color" value="yellow" ></label>
+						<label class="note-edit-red"><input type="radio" name="color" value="red" ></label>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<p>我的愿望：</p>
+						<textarea class="note-edit-content" name="content" placeholder="80个字符以内（中文占两个字符位）"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						保护密码：
+						<input class="note-edit-pwd" type="password" name="password" placeholder="6个字符以内"/>
+					</td>
+					<td>
+						<input class="note-edit-submit" type="submit" value="提交" />
+						<input class="note-edit-cancel" type="button" value="取消" />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
